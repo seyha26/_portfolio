@@ -169,6 +169,22 @@ nav {
     font-size: 28px;
     cursor: pointer;
 }
+.active-link {
+    position: relative;
+    color: var(--first-color);
+    transition: .3s;
+}
+.active-link::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background-color: var(--first-color);
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
 
 /* ================== WRAPPING DESIGN =================== */
 .wrapper {
@@ -378,7 +394,7 @@ nav {
     font-size: 15px;
     color: #777;
 }
-.project-box::after {
+.project-box::after, .contact-info::after {
     content: '';
     position: absolute;
     height: 100%;
@@ -388,7 +404,8 @@ nav {
     transition: .4s;
     z-index: 1;
 }
-.project-box:hover.project-box::after {
+.project-box:hover.project-box::after, 
+.contact-info:hover.contact-info::after {
     bottom: 0;
 }
 .project-box:hover.project-box i, 
@@ -398,12 +415,129 @@ nav {
     z-index: 2;
 }
 
+/* ===================== CONTACT BOX ======================== */
+.contact-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 325px;
+    padding: 20px 30px;
+    background-color: var(--second-color);
+    border-radius: 10px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    overflow: hidden;
+}
+.contact-info > h2 {
+    color: var(--color-white);
+    margin-bottom: 20px;
+}
+.contact-info h2 > i {
+    font-size: 30px;
+}
+.contact-info > p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-white);
+    margin-block: 5px;
+}
+.contact-info p > i {
+    font-size: 18px;
+}
+.contact-info::after {
+    background-color: var(--color-white);
+}
+
+.contact-info:hover h2, 
+.contact-info:hover p,
+.contact-info:hover i {
+    color: #777;
+    z-index: 2;
+}
+
 /* ===================== CONTACT FORM ======================== */
-
-
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.form-inputs {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.input-field {
+    width: 50%;
+    height: 55px;
+    border: 2px solid #aaa;
+    outline: none;
+    padding-inline: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+textarea {
+    width: 100%;
+    height: 250px;
+    background: transparent;
+    padding: 15px 20px;
+    border: 2px solid #aaa;
+    outline: none;
+    border-radius: 10px;
+    resize: none;
+}
+.form-button > .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--second-color);
+    color: var(--color-white);
+}
+.form-button > .btn:hover {
+    background-color: #e72300;
+}
+.form-button .btn > i {
+    font-size: 18px;
+    transform: rotate(-45deg);
+}
 
 /* ===================== FOOTER BOX ======================== */
-
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    background: #f8f8f8;
+    padding-block: 40px 60px;
+}
+.top-footer p {
+    font-size: 25px;
+    font-weight: 600;
+}
+.middle-footer .footer-menu {
+    display: flex;
+}
+.footer-menu-list {
+    list-style: none;
+}
+.footer-menu-list a {
+    text-decoration: none;
+    color: var(--text-color-second);
+    font-weight: 500;
+    margin-inline: 20px;
+}
+.footer-social-icons {
+    display: flex;
+    gap: 30px;
+}
+.bottom-footer {
+    font-size: 14px;
+    margin-top: 10px;
+}
 
 /* ============= MEDIA QUERY 1024 PX / RESPONSIVE ================= */
 @media only screen and ( max-width: 1024px) {
@@ -500,6 +634,12 @@ nav {
         font-size: 40px;
     }
     .project-box {
+        width: 100%;
+    }
+    .form-inputs {
+        flex-direction: column;
+    }
+    .form-inputs > .input-field {
         width: 100%;
     }
 }
