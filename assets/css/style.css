@@ -346,6 +346,58 @@ nav {
     padding: 2px 10px;
     border-radius: 5px;
 }
+
+
+/* ===================== PROJECT BOX ======================== */
+.project-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.project-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 250px;
+    background: var(--color-white);
+    border-radius: 20px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    overflow: hidden;
+}
+.project-box > i {
+    font-size: 50px;
+    color: #e72300;
+    margin-bottom: 25px;
+}
+.project-box > label {
+    font-size: 15px;
+    color: #777;
+}
+.project-box::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: -100%;
+    background:var(--second-color);
+    transition: .4s;
+    z-index: 1;
+}
+.project-box:hover.project-box::after {
+    bottom: 0;
+}
+.project-box:hover.project-box i, 
+.project-box:hover.project-box > h3,
+.project-box:hover.project-box > label {
+    color: var(--color-white);
+    z-index: 2;
+}
+
 /* ===================== CONTACT FORM ======================== */
 
 
@@ -364,7 +416,7 @@ nav {
     }
 }
 
-
+/* ============= MEDIA QUERY 900 PX / RESPONSIVE ================= */
 @media only screen and ( max-width: 900px) {
     nav {
         justify-content: space-between;
@@ -420,9 +472,34 @@ nav {
         width: 150px;
         height: 150px;
     }
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+    .col {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .about-info {
+        width: 100%;
+    }
+    .project-container {
+        justify-content: center;
+    }
+    .project-box {
+        width: 80%;
+    }
 }
 
-/* ============= MEDIA QUERY 900 PX / RESPONSIVE ================= */
-
-
 /* ============= MEDIA QUERY 540 PX / RESPONSIVE ================= */
+@media only screen  and (max-width: 540px) {
+    .featured-name {
+        font-size: 40px;
+    }
+    .project-box {
+        width: 100%;
+    }
+}
