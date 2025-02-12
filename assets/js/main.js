@@ -17,6 +17,60 @@ menuBar.addEventListener("click", () => {
   menuBtn.classList.toggle("responsive");
 });
 
+// Dark and light mode function 
+const htmlAtt = document.querySelector("html");
+const switchMode = document.querySelector(".mode-btn");
+const switchModeMobile = document.querySelector(".switch-mode");
+
+const moon = document.querySelector('.moon');
+const sun = document.querySelector('.sun');
+const dark = document.querySelector(".dark");
+const light = document.querySelector(".light");
+
+switchMode.addEventListener('click', () => {
+  htmlAtt.classList.toggle("dark-mode")
+  // if (htmlAtt.getAttribute("class").includes("dark-mode")) {
+  //   moon.style.display = "none";
+  //   sun.style.display = "flex"
+  // } else {
+  //   sun.style.display = "none";
+  //   moon.style.display = "flex"
+  // }
+    moon.classList.toggle('disable');
+    sun.classList.toggle('disable')
+    dark.classList.toggle("disable");
+    light.classList.toggle("disable");
+
+})
+
+switchModeMobile.addEventListener("click", () => {
+  htmlAtt.classList.toggle("dark-mode");
+  // if (htmlAtt.getAttribute("class").includes("dark-mode")) {
+  //   moon.style.display = "none";
+  //   sun.style.display = "flex"
+  // } else {
+  //   sun.style.display = "none";
+  //   moon.style.display = "flex";
+  // }
+  moon.classList.toggle("disable");
+  sun.classList.toggle("disable");
+  dark.classList.toggle("disable");
+  light.classList.toggle("disable");
+});
+
+
+// const moon = document.getElementsByClassName('moon');
+// const sun = document.getElementsByClassName('sun');
+
+// const htmlAtt = document.querySelector("html").getAttribute('class');
+
+// const darkMode = () => {
+//   if (!htmlAtt.includes("dark-mode") ) {
+//     document.querySelector("html").classList.add(darkMode);
+//   }
+// }
+
+
 // navbar shadow
 window.onscroll = () => headerShadow();
 
@@ -24,7 +78,9 @@ function headerShadow() {
   const header = document.getElementById("header");
 
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    header.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
+    htmlAtt.getAttribute("class").includes("dark-mode")
+      ? (header.style.boxShadow = "0 1px 6px rgba(255, 255, 255, 0.1)")
+      : (header.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)");
     header.style.height = "70px";
     header.style.lineHeight = "70px";
   } else {
@@ -37,7 +93,7 @@ function headerShadow() {
 // ================== Typing effect ===================
 
 var typingEffect = new Typed(".typedText", {
-  strings: ["Designer", "Developer", "Fullstack"],
+  strings: ["a Designer", "a Developer", "a Code lover"],
   loop: true,
   typeSpeed: 100,
   backSpeed: 80,
