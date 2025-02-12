@@ -162,8 +162,9 @@ nav {
     height: 90px;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     background: var(--body-color);
-    line-height: 90px;
+    /* line-height: 90px; */
     padding-inline: 9vh;
     transition: .3s;
     z-index: 100;
@@ -176,13 +177,13 @@ nav {
     font-weight: 600;
     color: var(--text-color-third);
 }
-.nav-logo span {
+/* .nav-logo span {
     position: absolute;
     font-size: 5em;
-    top: -15px;
+    top: -50px;
     right: -20px;
     color: var(--text-color-second);
-}
+} */
 .nav-menu, .nav-menu-list {
     display: flex;
 }
@@ -201,6 +202,8 @@ nav {
     display: none;
 }
 .nav-menu-btn i {
+    display: flex;
+    align-items: center;
     font-size: 28px;
     color: var(--text-color-second);
     cursor: pointer;
@@ -398,6 +401,7 @@ nav {
 .switch-mode {
     width: 100%;
     display: flex;
+    margin-top: 20px;
     justify-content: center;
     display: none;
 }
@@ -653,6 +657,7 @@ footer {
 
 /* ============= MEDIA QUERY 900 PX / RESPONSIVE ================= */
 @media only screen and ( max-width: 900px) {
+ 
     nav {
         justify-content: space-between;
     }
@@ -676,11 +681,19 @@ footer {
         backdrop-filter: blur(20px);
         transition: .3s;
     }
+    .nav-menu {
+        height: 100%;
+        top: 0;
+        z-index: -11;
+    }
     .nav-menu-list {
         flex-direction: column;
+        justify-content: center;
+        gap: 30px;
     }
     .nav-menu-btn {
         display: flex;
+    
     }
     .featured-box {
         flex-direction: column;

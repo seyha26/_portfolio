@@ -11,10 +11,20 @@
 // }
 
 const menuBar = document.getElementById("menu-bar");
+const closeBar = document.getElementById("close");
+const openBar = document.getElementById("open");
 const menuBtn = document.getElementById("myNavMenu");
 
 menuBar.addEventListener("click", () => {
   menuBtn.classList.toggle("responsive");
+  if (menuBtn.className.includes("responsive")) {
+    openBar.classList.add('disable');
+    closeBar.classList.remove('disable');
+
+  } else {
+    openBar.classList.remove('disable');
+    closeBar.classList.add('disable');
+  }
 });
 
 // Dark and light mode function 
@@ -148,17 +158,19 @@ const scrollActive = () => {
     const sectionHeight = current.offsetHeight,
       sectionTop = current.offsetTop - 50,
       sectoinId = current.getAttribute("id");
-    console.log(current.getAttribute("id"));
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
       document
         .querySelector(".nav-menu a[href*=" + sectoinId + "]")
         .classList.add("active-link");
-      console.log(current.getAttribute("id"));
+        menuBtn.classList.remove("responsive");
+        closeBar.classList.add("disable");
+        openBar.classList.remove("disable");
     } else {
       document
         .querySelector(".nav-menu a[href*=" + sectoinId + "]")
         .classList.remove("active-link");
+        menuBtn.classList.remove("responsive");
     }
   });
 };
