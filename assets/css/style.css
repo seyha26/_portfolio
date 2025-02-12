@@ -202,6 +202,7 @@ nav {
 }
 .nav-menu-btn i {
     font-size: 28px;
+    color: var(--text-color-second);
     cursor: pointer;
 }
 .nav-button {
